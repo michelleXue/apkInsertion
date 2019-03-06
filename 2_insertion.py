@@ -44,7 +44,7 @@ class Apk:
 
 def scan_and_insert(files_path):
     pattern = "Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V"
-
+    prefix = "invoke-virtual {"
     for root, dirs, files in os.walk(files_path):
         for fname in files:
             path = os.path.join(root, fname)
@@ -52,14 +52,14 @@ def scan_and_insert(files_path):
                 print('analyzing ' + str(path) + '...')
                 for line in fileinput.FileInput(path, inplace=1):
                     if pattern in line:
-                        print(line)
-                        line = line.replace(line, line + inserted_text(line))
-                    print(line, end='')
+                        if prefix in line:
+                            line = line.replace(line, line + inserted_text(line))
+                            print(line, end='')
 
 
 def inserted_text(line):
     var = line[line.find("{") + 1:line.find("{") + 2]
-    var_number: int = int(line[line.find("{v") + 2:line.find(",")])  # find variable name number of EditText
+    var_number: int = int(line[line.find("{") + 2:line.find(",")])  # find variable name number of EditText
     var_tag = "v" + str(var_number + 10)
     var_tmp_id = "v" + str(var_number + 11)
     var_log_id = "v" + str(var_number + 12)
@@ -77,5 +77,5 @@ def inserted_text(line):
 
 if __name__ == "__main__":
 
-    files_path = '/Users/xue/Documents/Research/InputGeneration/AppBrain_top_apps/test_decode'
+    files_path = '/Users/xue/Documents/Research/InputGeneration/apkAnalysis/decoded_apks/'
     scan_and_insert(files_path)

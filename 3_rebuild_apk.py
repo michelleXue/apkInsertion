@@ -24,6 +24,6 @@ def rebuild_apk(rebuild_apk_path, decode_file_path):
 
 
 if __name__ == "__main__":
-    rebuild_apk_path = "/Users/xue/Documents/Research/InputGeneration/AppBrain_top_apps/apkAnalysis/test_rebuild/"
-    decode_file_path = "/Users/xue/Documents/Research/InputGeneration/AppBrain_top_apps/apkAnalysis/test_decode/"
+    rebuild_apk_path = "/Users/xue/Documents/Research/InputGeneration/apkAnalysis/rebuild_apks/"
+    decode_file_path = "/Users/xue/Documents/Research/InputGeneration/apkAnalysis/decoded_apks/"
     rebuild_apk(rebuild_apk_path, decode_file_path)
