@@ -3,11 +3,12 @@ import sys
 import os
 
 if __name__ == "__main__":
+
     keyPath = "/Users/xue/Documents/Research/InputGeneration/apkAnalysis/keys/"
     apkNameList = []
 
     for line in open(
-            "/Users/xue/Documents/Research/InputGeneration/apkAnalysis/origin_apks_can_rebuild/apkList.txt").readlines():
+            "/Users/xue/Documents/Research/InputGeneration/apkAnalysis/origin_apks_part/apkList.txt").readlines():
         line = line.strip() + ".apk"
         apkNameList.append(line)
     print(len(apkNameList))
