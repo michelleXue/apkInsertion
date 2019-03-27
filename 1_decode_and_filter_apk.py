@@ -6,7 +6,7 @@ pattern = "Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextW
 def create_apk_list(apk_path, apk_list):
     arr_apk = [x for x in os.listdir(apk_path) if x.endswith(".apk")]
     # write to apklist
-    f = open(apk_list,"w+")
+    f = open(apk_list, "w+")
     for apk in arr_apk:
         file_name = apk.replace(".apk", "")
         f.write("%s\n" % file_name)

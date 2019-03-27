@@ -20,7 +20,7 @@ for line in apkNameList:
     if line in files:
         print("%s exists!!!!" % line)
     else:
-        cmd1 = "keytool -genkeypair -dname \"cn=Mark Jones, ou=JavaSoft, o=Sun, c=US\" -alias business -keypass kpi135 -keystore %s -storepass ab987c -validity 20000" % (keyPath+line)
+        cmd1 = "keytool -genkeypair -dname \"cn=Mark Jones, ou=JavaSoft, o=Sun, c=US\" -alias abc.keystore -keyalg RSA -keypass 123456 -keystore %s -storepass 123456 -validity 20000" % (keyPath+line)
         print(cmd1)
         os.system(cmd1)
         # cmd2 = "keytool -importkeystore -srckeystore %s -destkeystore %s -deststoretype pkcs12" % (keyPath+line, keyPath+line)
